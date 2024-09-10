@@ -29,9 +29,10 @@ app.use(helmet());
 app.use(cors());
 app.use(xss());
 
-app.get('/', (req, res) => {
-  res.send(' Home page ');
-});
+app.use(express.static("public"));
+// app.get('/', (req, res) => {
+//   res.send(' Home page ');
+// });
 // routes
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/jobs', authenticateUser, jobsRouter);
